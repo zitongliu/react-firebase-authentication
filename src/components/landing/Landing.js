@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import * as routes from '../../constants/routes';
 
 export default class Landing extends React.Component {
 
@@ -6,8 +8,8 @@ export default class Landing extends React.Component {
     return (
       <div>
         <h1>Welcome!</h1>
-        <button>Login</button>
-        <button>Signup</button>
+        <Link to={routes.LOGIN}>Login</Link>
+        <Link to={routes.SIGNUP}>Sign up</Link>
       </div>
     );
   }
