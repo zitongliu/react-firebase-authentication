@@ -1,26 +1,36 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import Login from './login/Login';
-import Signup from './signup/Signup';
+import Navigation from './navigation/Navigation';
+import LandingPage from './landing/Landing';
+import SignUpPage from './signup/Signup';
+import SignInPage from './login/Login';
+import HomePage from './home/Home';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <Login />
-        <Signup />
-      </div>
-    );
-  }
-}
+import * as routes from '../constants/routes';
+
+const App = () =>
+  <Router>
+    <div>
+      <Navigation />
+      <hr/>
+      <Route
+        exact path={routes.LANDING}
+        component={() => <LandingPage />}
+      />
+      <Route
+        exact path={routes.SIGN_UP}
+        component={() => <SignUpPage />}
+      />
+      <Route
+        exact path={routes.SIGN_IN}
+        component={() => <SignInPage />}
+      />
+      <Route
+        exact path={routes.HOME}
+        component={() => <HomePage />}
+      />
+    </div>
+  </Router>
 
 export default App;
