@@ -1,0 +1,1 @@
+# Authentication - React and Firebase
