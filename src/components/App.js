@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Navigation from './navigation/Navigation';
 import LandingPage from './landing/Landing';
-import SignUpPage from './signup/Signup';
-import LoginPage from './login/Login';
+import SignUpPage from './sign-up/SignUpPage';
+import SignInPage from './sign-in/SignInPage';
 import HomePage from './home/Home';
 
 import * as routes from '../constants/routes';
@@ -23,8 +23,8 @@ const App = () =>
         component={() => <SignUpPage />}
       />
       <Route
-        exact path={routes.LOGIN}
-        component={() => <LoginPage />}
+        exact path={routes.SIGNIN}
+        component={() => <SignInPage />}
       />
       <Route
         exact path={routes.HOME}

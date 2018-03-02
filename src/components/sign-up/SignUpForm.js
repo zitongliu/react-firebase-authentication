@@ -1,11 +1,10 @@
 import React from 'react';
 
-export default class Signup extends React.Component {
+export default class SignUpForm extends React.Component {
 
   render() {
     return (
         <form action="" className="signup">
-            <h2>Sign up for an account</h2>
             <label htmlFor="login-email">Email</label>
             <input id="signup-email" type="text"/>
             <label htmlFor="signup-password">Password</label>

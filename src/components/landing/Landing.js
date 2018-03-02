@@ -8,8 +8,8 @@ export default class Landing extends React.Component {
     return (
       <div>
         <h1>Welcome!</h1>
-        <Link to={routes.LOGIN}>Login</Link>
-        <Link to={routes.SIGNUP}>Sign up</Link>
+        <Link to={routes.SIGNIN}>Login</Link>
+        <Link to={routes.SIGNUP}>Register Account</Link>
       </div>
     );
   }
