@@ -1,5 +1,7 @@
 import React from 'react';
-import {withRouter} from 'react-router-dom';
+import {withRouter, Link} from 'react-router-dom';
+
+import * as routes from '../../constants/routes';
 
 import SignUpForm from './SignUpForm';
 
@@ -12,5 +14,17 @@ const SignUpPage = ({history}) => {
   );
 }
 
+const SignUpLink = () =>
+  <p>
+    Don't have an account?
+    {' '}
+    <Link to={routes.SIGNUP}>Sign Up</Link>
+  </p>
+
 // withRouter is a higher order component which gives SignUpPage access to router properties (such as history) via props.
 export default withRouter(SignUpPage);
+
+export {
+  SignUpForm,
+  SignUpLink,
+}
