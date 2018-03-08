@@ -1,5 +1,6 @@
 import React from 'react';
 import { auth } from '../../firebase';
+import * as routes from '../../constants/routes';
 
 const INITIAL_STATE = {
   username: '',
@@ -25,11 +26,20 @@ export default class SignUpForm extends React.Component {
   _handleSubmit = (e) => {
     e.preventDefault();
 
-    const { username, email, passwordOne } = this.state;
+    const {
+      username,
+      email,
+      passwordOne
+    } = this.state;
+
+    const {
+      history,
+    } = this.props;
 
     auth.doCreateUserWithEmailAndPassword(email, passwordOne)
       .then(authUser => {
         this.setState(() => ({ ...INITIAL_STATE }));
+        history.push(routes.HOME);
       })
       .catch(error => {
         this.setState(byPropKey('error', error));
