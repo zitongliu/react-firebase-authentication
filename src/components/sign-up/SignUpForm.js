@@ -1,4 +1,5 @@
 import React from 'react';
+import { auth } from '../../firebase';
 
 const INITIAL_STATE = {
   username: '',
@@ -24,7 +25,7 @@ export default class SignUpForm extends React.Component {
   _handleSubmit = (e) => {
     e.preventDefault();
 
-    {username, email, passwordOne, passwordTwo} = this.state;
+  const { username, email, passwordOne, passwordTwo } = this.state;
 
   }
 
