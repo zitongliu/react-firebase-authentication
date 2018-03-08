@@ -21,24 +21,34 @@ export default class SignUpForm extends React.Component {
     this._handleSubmit = this._handleSubmit.bind(this);
   }
 
-  _handleSubmit(e) {
-    console.log('the submit button was clicked');
+  _handleSubmit = (e) => {
     e.preventDefault();
+
+    {username, email, passwordOne, passwordTwo} = this.state;
+
   }
 
   render() {
+    const {username, email, passwordOne, passwordTwo, error} = this.state;
+
+    const isInvalid = passwordOne !== passwordTwo ||
+      passwordOne === '' ||
+      email === '' ||
+      username === '';
+
     return (
         <form onSubmit={this._handleSubmit} className="signup">
             <label htmlFor="signup-username">Username</label>
-            <input id="signup-username" type="text" placeholder="Display Name" onChange={e => this.setState({['username']:e.target.value})} />
+            <input id="signup-username" type="text" placeholder="Display Name" onChange={e => this.setState(byPropKey('username', e.target.value))} value={username} />
             <label htmlFor="login-email">Email</label>
-            <input id="signup-email" type="text" placeholder="example@email.com" onChange={e => this.setState({['email']:e.target.value})} />
+            <input id="signup-email" type="text" placeholder="example@email.com" onChange={e => this.setState(byPropKey('email', e.target.value))} value={email} />
             <label htmlFor="signup-password">Password</label>
-            <input id="signup-password" type="password" onChange={e => this.setState({['passwordOne']:e.target.value})} />
+            <input id="signup-password" type="password" onChange={e => this.setState(byPropKey('passwordOne', e.target.value))} value={passwordOne} />
             <label htmlFor="signup-password">Confirm Password</label>
-            <input id="signup-password-confirm" type="password" onChange={e => this.setState({['passwordTwo']:e.target.value})} />
+            <input id="signup-password-confirm" type="password" onChange={e => this.setState(byPropKey('passwordTwo', e.target.value))} value={passwordTwo} />
             <a href='/'>Back</a>
-            <button type="submit">Submit</button>
+            <button disabled={isInvalid} type="submit">Submit</button>
+            { error && <p>{error.message}</p> }
         </form>
     );
   }
